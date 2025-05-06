@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRent", "CarRent\CarRent.csproj", "{EDCBC05A-8080-4D8C-8853-7CA08E31DEA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{526A6E91-61DE-4096-8597-A18A424614DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres", "Postgres\Postgres.csproj", "{40F70E2E-904E-43D7-9718-AE7A35800127}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDCBC05A-8080-4D8C-8853-7CA08E31DEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCBC05A-8080-4D8C-8853-7CA08E31DEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCBC05A-8080-4D8C-8853-7CA08E31DEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCBC05A-8080-4D8C-8853-7CA08E31DEA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526A6E91-61DE-4096-8597-A18A424614DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526A6E91-61DE-4096-8597-A18A424614DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526A6E91-61DE-4096-8597-A18A424614DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526A6E91-61DE-4096-8597-A18A424614DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40F70E2E-904E-43D7-9718-AE7A35800127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F70E2E-904E-43D7-9718-AE7A35800127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F70E2E-904E-43D7-9718-AE7A35800127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F70E2E-904E-43D7-9718-AE7A35800127}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
