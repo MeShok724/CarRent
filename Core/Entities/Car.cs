@@ -32,6 +32,7 @@ namespace Core.Entities
         public DateTime? AddedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<CarImage> CarImages { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace Postgres
         public DbSet<CarCategory> CarCategories { get; set; }
         public DbSet<CarDamageReport> CarDamageReports { get; set; }
         public DbSet<CarDocument> CarDocuments { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
         public DbSet<CarLocation> CarLocations { get; set; }
         public DbSet<CarRentHistory> CarRentHistory { get; set; }
         public DbSet<CarReview> CarReviews { get; set; }

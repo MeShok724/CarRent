@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres", "Postgres\Postgr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{04E52747-5214-46E4-9125-87AE0E279D8C}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "client", "Client\client.esproj", "{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{04E52747-5214-46E4-9125-87AE0E279D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04E52747-5214-46E4-9125-87AE0E279D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04E52747-5214-46E4-9125-87AE0E279D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70042C8E-A1DA-47FB-A13A-6ACFCA4A98C1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
