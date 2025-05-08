@@ -29,6 +29,7 @@ namespace Application.Services
                     .Include(c => c.Category)
                     .Include(c => c.Status)
                     .Include(c => c.Branch)
+                    .Include(c => c.CarImages)
                     .FirstOrDefaultAsync(c => c.Id == id);
             }
             catch (Exception)
@@ -45,6 +46,7 @@ namespace Application.Services
                     .Include(c => c.Category)
                     .Include(c => c.Status)
                     .Include(c => c.Branch)
+                    .Include(c => c.CarImages)
                     .OrderBy(c => c.Brand)
                     .ThenBy(c => c.Model)
                     .ToListAsync();
@@ -69,6 +71,7 @@ namespace Application.Services
                     .Where(c => c.StatusId == availableStatus.Id)
                     .Include(c => c.Category)
                     .Include(c => c.Branch)
+                    .Include(c => c.CarImages)
                     .ToListAsync();
             }
             catch (Exception)
