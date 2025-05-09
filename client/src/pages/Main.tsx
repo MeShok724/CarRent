@@ -1,22 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../styles/Main.css'
-
-interface CarImage {
-    id: number
-    carId: number
-    imageUrl: string
-}
-interface Car {
-    id: number
-    brand: string
-    model: string
-    year: number
-    licensePlate: string
-    color: string
-    mileage: number
-    rentalPricePerDay: number
-    carImages: CarImage[]
-}
+import { Link } from 'react-router-dom'
+import type { Car } from '../interfaces/car'
 
 function Main() {
     const [cars, setCars] = useState<Car[]>([])
@@ -36,10 +21,9 @@ function Main() {
     }, [])
     if (loading) return <p>Загрузка...</p>
   return (
-      <div style={{paddingLeft: 30}}>
-          <h2>Список автомобилей</h2>
+      <div className="p-4">
           {cars.map(car => (
-              <div key={car.id} style={{ border: '1px solid #ccc', marginBottom: '1rem', padding: '1rem', display: 'flex' }}>
+              <div className="card mb-4 shadow-sm" key={car.id} style={{ border: '1px solid #ccc', marginBottom: '1rem', padding: '1rem', display: 'flex', flexDirection: 'row' }}>
                   {car.carImages?.[0] && (
                       <img
                           src={car.carImages[0].imageUrl}
@@ -48,10 +32,14 @@ function Main() {
                       />
                   )}
                   <div>
-                      <h3>{car.brand} {car.model} ({car.year})</h3>
-                      <p>Цвет: {car.color}, Пробег: {car.mileage} км</p>
+                      <h5 className="card-title pb-3">
+                          <Link to={`/cars/${car.id}`} style={{ textDecoration: 'none'/*, color:'black'*/ }}>
+                              {car.brand} {car.model} ({car.year})
+                          </Link>
+                      </h5>
+                      <p>{car.category.name}, Цвет: {car.color}</p>
+                      <p>Объем двигателя: {car.engineVolume} л, Пробег: {car.mileage} км</p>
                       <p>Цена аренды: {car.rentalPricePerDay} BYN / день</p>
-                      <p>Номер: {car.licensePlate}</p>
                       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                           {car.carImages?.map(img => (
                               <img
@@ -62,6 +50,9 @@ function Main() {
                               />
                           ))}
                       </div>
+                      <Link to={`/cars/${car.id}`} className="btn btn-primary" style={{marginTop: 30}}>
+                          Подробнее
+                      </Link>
                   </div>
               </div>
           ))}
