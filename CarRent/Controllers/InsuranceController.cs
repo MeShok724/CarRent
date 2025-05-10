@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Services;
 using Core.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +56,21 @@ namespace CarRent.Controllers
             var deleted = await _service.DeleteAsync(id);
             if (!deleted) return NotFound("Deletion failed");
             return NoContent();
+        }
+
+        [HttpPost("extend/{carId}")]
+        public async Task<IActionResult> ExtendCarInsurance(int carId, [FromQuery] int monthsToAdd)
+        {
+            try
+            {
+                // Вызов метода сервиса для продления страховки
+                await _service.ExtendCarInsuranceAsync(carId, monthsToAdd);
+                return Ok(new { Message = "Car insurance extended successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
         }
     }
 

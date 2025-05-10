@@ -83,6 +83,19 @@ namespace Application.Services
                 return false;
             }
         }
+
+        public async Task ExtendCarInsuranceAsync(int carId, int monthsToAdd)
+        {
+            try
+            {
+                await _context.Database.ExecuteSqlRawAsync(
+                    "CALL extend_car_insurance({0}, {1})", carId, monthsToAdd);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error while extending car insurance.", ex);
+            }
+        }
     }
 
 }

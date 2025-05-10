@@ -24,23 +24,19 @@ namespace Application.Services
         {
             try
             {
-                // Проверяем существование пользователя
                 var userExists = await _dbContext.Users.AnyAsync(u => u.Id == userId);
                 if (!userExists)
                     return null;
 
-                var blacklistRecord = new Blacklist
-                {
-                    UserId = userId,
-                    Reason = reason,
-                    BunnedAt = DateTime.UtcNow,
-                    ExpirationDate = expirationDate
-                };
+                var days = expirationDate.HasValue
+                    ? (int)Math.Ceiling((expirationDate.Value - DateTime.UtcNow).TotalDays)
+                    : 30;
 
-                await _dbContext.Blacklists.AddAsync(blacklistRecord);
-                await _dbContext.SaveChangesAsync();
+                await _dbContext.Database.ExecuteSqlInterpolatedAsync(
+                    $"CALL add_to_blacklist({userId}, {reason}, {days})");
 
-                return blacklistRecord;
+                var blackList = await _dbContext.Blacklists.FirstAsync(b => b.UserId == userId);
+                return blackList;
             }
             catch (Exception)
             {

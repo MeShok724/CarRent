@@ -38,6 +38,25 @@ namespace Application.Services
             }
         }
 
+        public async Task<List<Car>> GetCarsByCategoryAsync(int categoryId)
+        {
+            try
+            {
+                var cars = await _dbContext.Cars
+                    .FromSqlInterpolated($"SELECT * FROM get_cars_by_category({categoryId})")
+                    .Include(c => c.Category)
+                    .Include(c => c.Status)
+                    .Include(c => c.CarImages)
+                    .ToListAsync();
+
+                return cars;
+            }
+            catch (Exception)
+            {
+                return new List<Car>();
+            }
+        }
+
         public async Task<List<Car>> GetAllCarsAsync()
         {
             try
@@ -61,17 +80,13 @@ namespace Application.Services
         {
             try
             {
-                var availableStatus = await _dbContext.CarStatuses
-                    .FirstOrDefaultAsync(s => s.Name == "Available");
-
-                if (availableStatus == null)
-                    return new List<Car>();
-
                 return await _dbContext.Cars
-                    .Where(c => c.StatusId == availableStatus.Id)
+                    .FromSqlRaw("SELECT * FROM get_available_cars()")
                     .Include(c => c.Category)
-                    .Include(c => c.Branch)
+                    .Include(c => c.Status)
                     .Include(c => c.CarImages)
+                    .OrderBy(c => c.Brand)
+                    .ThenBy(c => c.Model)
                     .ToListAsync();
             }
             catch (Exception)

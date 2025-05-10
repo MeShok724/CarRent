@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Services;
 using Core.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +56,20 @@ namespace CarRent.Controllers
             var deleted = await _service.DeleteAsync(id);
             if (!deleted) return NotFound("Deletion failed");
             return NoContent();
+        }
+
+        [HttpGet("total-payments/{orderId}")]
+        public async Task<IActionResult> GetOrderTotalPayments(int orderId)
+        {
+            try
+            {
+                var totalPayments = await _service.GetOrderTotalPaymentsAsync(orderId);
+                return Ok(new { TotalPayments = totalPayments });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
         }
     }
 

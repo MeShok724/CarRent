@@ -9,6 +9,7 @@ namespace Application.Interfaces
         Task<Insurance?> CreateAsync(Insurance insurance);
         Task<Insurance?> UpdateAsync(Insurance insurance);
         Task<bool> DeleteAsync(int id);
+        Task ExtendCarInsuranceAsync(int carId, int monthsToAdd);
     }
 
 }

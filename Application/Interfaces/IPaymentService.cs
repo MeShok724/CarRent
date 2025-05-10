@@ -9,6 +9,7 @@ namespace Application.Interfaces
         Task<Payment?> CreateAsync(Payment payment);
         Task<Payment?> UpdateAsync(Payment payment);
         Task<bool> DeleteAsync(int id);
+        Task<decimal> GetOrderTotalPaymentsAsync(int orderId);
     }
 
 }

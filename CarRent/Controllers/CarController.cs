@@ -32,6 +32,20 @@ namespace CarRent.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+        [HttpGet("category/{categoryId}")]
+        public async Task<IActionResult> GetCarsByCategory(int categoryId)
+        {
+            try
+            {
+                var cars = await _carService.GetCarsByCategoryAsync(categoryId);
+                return cars != null ? Ok(cars) : NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error getting cars with category id {categoryId}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAllCars()
@@ -47,6 +61,7 @@ namespace CarRent.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
 
         [HttpGet("available")]
         public async Task<IActionResult> GetAvailableCars()

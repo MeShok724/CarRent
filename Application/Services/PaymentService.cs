@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Postgres;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,25 @@ namespace Application.Services
             catch
             {
                 return false;
+            }
+        }
+
+        public async Task<decimal> GetOrderTotalPaymentsAsync(int orderId)
+        {
+            try
+            {
+                await using var command = _context.Database.GetDbConnection().CreateCommand();
+                command.CommandText = "SELECT get_order_total_payments(@orderId)";
+                command.Parameters.Add(new Npgsql.NpgsqlParameter("@orderId", orderId));
+
+                await _context.Database.OpenConnectionAsync();
+
+                var result = await command.ExecuteScalarAsync();
+                return result != null ? Convert.ToDecimal(result) : 0;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error while retrieving total payments.", ex);
             }
         }
     }
