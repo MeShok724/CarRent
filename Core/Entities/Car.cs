@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using TypeGen.Core.TypeAnnotations;
 
@@ -34,6 +35,7 @@ namespace Core.Entities
         public DateTime? AddedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
+        [JsonIgnore]
         public ICollection<Order>? Orders { get; set; }
         public ICollection<CarImage>? CarImages { get; set; }
     }

@@ -46,6 +46,8 @@ namespace Application.Services
         {
             try
             {
+                order.StartDate = DateTime.SpecifyKind(order.StartDate.Value, DateTimeKind.Utc);
+                order.ReturnDate = DateTime.SpecifyKind(order.ReturnDate.Value, DateTimeKind.Utc);
                 _context.Orders.Add(order);
                 await _context.SaveChangesAsync();
                 return order;
@@ -60,6 +62,8 @@ namespace Application.Services
         {
             try
             {
+                order.StartDate = DateTime.SpecifyKind(order.StartDate.Value, DateTimeKind.Utc);
+                order.ReturnDate = DateTime.SpecifyKind(order.ReturnDate.Value, DateTimeKind.Utc);
                 var existing = await _context.Orders.FindAsync(order.Id);
                 if (existing == null) return null;
 

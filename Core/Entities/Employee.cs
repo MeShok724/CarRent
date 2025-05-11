@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using TypeGen.Core.TypeAnnotations;
 
@@ -23,6 +24,7 @@ namespace Core.Entities
         public string? Email { get; set; }
         public string? Phone { get; set; }
 
+        [JsonIgnore]
         public ICollection<Order>? Orders { get; set; }
     }
 }
