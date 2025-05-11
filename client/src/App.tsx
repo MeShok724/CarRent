@@ -9,6 +9,8 @@ import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Filials from './pages/Filials'
 import AdminCars from './pages/admin/AdminCars'
+import AdminUsers from './pages/admin/AdminUsers'
+import AdminOrders from './pages/admin/AdminOrders'
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
                     <Route path="/cars/:id" element={<CarPage />} />
                     <Route path="/filials" element={<Filials />} />
                     <Route path="/admin/cars" element={<AdminCars />} />
+                    <Route path="/admin/users" element={<AdminUsers />} />
+                    <Route path="/admin/orders" element={<AdminOrders />} />
                 </Routes>
             </main>
             <Outlet />
