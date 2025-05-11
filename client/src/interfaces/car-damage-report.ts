@@ -3,8 +3,8 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { Car } from "./car";
-import { Employee } from "./employee";
+import type { Car } from "./car";
+import type { Employee } from "./employee";
 
 export interface CarDamageReport {
     id: number;

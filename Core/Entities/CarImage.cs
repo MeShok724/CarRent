@@ -15,6 +15,6 @@ namespace Core.Entities
         public int CarId { get; set; }
         [JsonIgnore]
         public Car? Car { get; set; }
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

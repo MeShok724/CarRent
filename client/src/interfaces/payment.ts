@@ -1,11 +1,8 @@
-/**
- * This is a TypeGen auto-generated file.
- * Any changes made to this file can be lost when this file is regenerated.
- */
 
-import { Order } from "./order";
-import { User } from "./user";
-import { PaymentType } from "./payment-type";
+
+import type { Order } from "./order";
+import type { User } from "./user";
+import type { PaymentType } from "./payment-type";
 
 export interface Payment {
     id: number;

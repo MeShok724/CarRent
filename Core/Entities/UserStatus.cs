@@ -15,6 +15,6 @@ namespace Core.Entities
         public string? Name { get; set; }
 
         [JsonIgnore]
-        public ICollection<User> Users { get; set; } = new List<User>();
+        public ICollection<User>? Users { get; set; }
     }
 }

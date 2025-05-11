@@ -3,9 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { EmployeeRole } from "./employee-role";
-import { Branch } from "./branch";
-import { Order } from "./order";
+import type { EmployeeRole } from "./employee-role";
+import type { Branch } from "./branch";
+import type { Order } from "./order";
 
 export interface Employee {
     id: number;

@@ -13,6 +13,6 @@ namespace Core.Entities
         public int Id { get; set; }
         public string? Name { get; set; }
 
-        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+        public ICollection<Payment>? Payments { get; set; }
     }
 }

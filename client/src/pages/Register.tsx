@@ -1,6 +1,7 @@
 ﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { User } from '../interfaces/user'
+import { saveUser } from './Login'
 
 function Register() {
     const [username, setUsername] = useState('')
@@ -29,7 +30,10 @@ function Register() {
             })
 
             if (response.ok) {
-                navigate('/')
+                const user: User = await response.json();
+                saveUser(user)
+                window.location.href = '/'
+                //navigate('/')
             } else {
                 setError('Ошибка регистрации. Возможно, пользователь уже существует.')
             }

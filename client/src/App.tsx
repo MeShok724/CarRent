@@ -7,6 +7,8 @@ import Register from './pages/Register'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Filials from './pages/Filials'
+import AdminCars from './pages/admin/AdminCars'
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/cars/:id" element={<CarPage />} />
+                    <Route path="/filials" element={<Filials />} />
+                    <Route path="/admin/cars" element={<AdminCars />} />
                 </Routes>
             </main>
             <Outlet />

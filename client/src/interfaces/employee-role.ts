@@ -3,7 +3,7 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { Employee } from "./employee";
+import type { Employee } from "./employee";
 
 export interface EmployeeRole {
     id: number;

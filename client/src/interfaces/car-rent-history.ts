@@ -3,9 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { Car } from "./car";
-import { User } from "./user";
-import { Order } from "./order";
+import type { Car } from "./car";
+import type { User } from "./user";
+import type { Order } from "./order";
 
 export interface CarRentHistory {
     id: number;

@@ -1,6 +1,19 @@
 ﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import type { User } from '../interfaces/user'
 
+export const saveUser = (user: User) => {
+    sessionStorage.setItem("user", JSON.stringify(user))
+}
+
+export const getUser = (): User | null => {
+    const data = sessionStorage.getItem("user")
+    return data ? JSON.parse(data) : null
+}
+
+export const clearUser = () => {
+    sessionStorage.removeItem("user")
+}
 function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -21,7 +34,10 @@ function Login() {
             })
 
             if (response.ok) {
-                navigate('/') // Успешный вход
+                const user: User = await response.json();
+                saveUser(user)
+                window.location.href = '/'
+                //navigate('/')
             } else {
                 setError('Неверное имя пользователя или пароль.')
             }

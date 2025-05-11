@@ -3,11 +3,11 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-import { User } from "./user";
-import { Car } from "./car";
-import { Branch } from "./branch";
-import { Employee } from "./employee";
-import { Discount } from "./discount";
+import type { User } from "./user";
+import type { Car } from "./car";
+import type { Branch } from "./branch";
+import type { Employee } from "./employee";
+import type { Discount } from "./discount";
 
 export interface Order {
     id: number;
