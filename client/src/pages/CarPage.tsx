@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import type { Car } from '../interfaces/car'
 import CarImageCarousel from '../components/CarImageCarousel'
@@ -32,7 +32,7 @@ const CarPage = () => {
                         <p className="card-text col-md-5 ps-5">
                             <strong>Цвет:</strong> {car.color} <br />
                             <strong>Пробег:</strong> {car.mileage} км <br />
-                            <strong>Категория:</strong> {car.category.name}<br />
+                            <strong>Категория:</strong> {car.category?.name}<br />
                             <strong>Объем двигателя:</strong> {car.engineVolume} л<br />
                             <strong>Кол-во сидений:</strong> {car.seats}<br />
                             <strong>Цена аренды:</strong> {car.rentalPricePerDay} BYN / день<br />

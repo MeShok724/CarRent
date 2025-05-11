@@ -37,7 +37,7 @@ function Main() {
                               {car.brand} {car.model} ({car.year})
                           </Link>
                       </h5>
-                      <p>{car.category.name}, Цвет: {car.color}</p>
+                      <p>{car.category?.name}, Цвет: {car.color}</p>
                       <p>Объем двигателя: {car.engineVolume} л, Пробег: {car.mileage} км</p>
                       <p>Цена аренды: {car.rentalPricePerDay} BYN / день</p>
                       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>

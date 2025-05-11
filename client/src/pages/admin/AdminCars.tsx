@@ -1,8 +1,5 @@
 ﻿import { useEffect, useState } from 'react'
 import type { Car } from '../../interfaces/car';
-import type { CarCategory } from '../../interfaces/car-category'
-import type { CarStatus } from '../../interfaces/car-status'
-import type { Branch } from '../../interfaces/branch'
 function AdminCars() {
     const [cars, setCars] = useState<Car[]>([])
     const [editingCar, setEditingCar] = useState<Car | null>(null)
